@@ -1,7 +1,4 @@
 import React from "react";
-import "../../reset.css";
-import "../../App.css";
-import "../../utils.css";
 
 function Button({ onClick }) {
   return (

@@ -1,20 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { submitPoll } from "../../firebase";
 import Button from "../button/Button";
 import Form from "../form/Form";
 
 function CreatePoll() {
-  const [alternatives, setAlternatives] = useState(["Jag", "Du"]);
-  const [question, setQuestion] = useState();
+  const [alternatives, alternativesDispatch] = useReducer(alternativeReducer, [
+    ""
+  ]);
+  const [question, setQuestion] = useState("");
   const [pollId, setPollId] = useState();
 
-  function handleInputChange(event) {
+  function handleQuestionChange(event) {
     const value = event.target.value;
     setQuestion(value);
   }
 
   function handlePollSubmit(value) {
     setPollId(value);
+  }
+
+  function handleAlternativeChange(alternativeKey) {
+    return event => {
+      alternativesDispatch({
+        type: "UPDATE",
+        key: alternativeKey,
+        value: event.target.value
+      });
+    };
   }
 
   useEffect(() => {
@@ -28,11 +40,28 @@ function CreatePoll() {
           <input
             type="text"
             value={question}
-            onChange={handleInputChange}
+            onChange={handleQuestionChange}
             placeholder="What would you like for dinner today?"
           />
         }
-      ></Form>
+      />
+
+      {!!question &&
+        alternatives.map((alternative, key) => {
+          return (
+            <Form
+              key={key}
+              inputField={
+                <input
+                  type="text"
+                  value={alternative}
+                  onChange={handleAlternativeChange(key)}
+                  placeholder="Question"
+                />
+              }
+            />
+          );
+        })}
 
       <Button
         onClick={submitPoll(
@@ -46,6 +75,18 @@ function CreatePoll() {
       <div>Poll ID is: {pollId}</div>
     </div>
   );
+}
+
+function alternativeReducer(state, action) {
+  switch (action.type) {
+    case "UPDATE":
+      const isEditingLastItem = action.key === state.length - 1;
+      const newState = isEditingLastItem ? [...state, ""] : [...state];
+      newState[action.key] = action.value;
+      return newState;
+    default:
+      return [...state];
+  }
 }
 
 export default CreatePoll;

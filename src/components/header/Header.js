@@ -1,11 +1,8 @@
 import React from "react";
-import "../../reset.css";
-import "../../App.css";
-import "../../utils.css";
 
 function Header() {
   return (
-    <h1 class="height-base fontsize-large textcolor-primary italic">
+    <h1 className="height-base fontsize-large textcolor-primary italic">
       cast.vote
     </h1>
   );
