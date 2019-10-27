@@ -25,6 +25,13 @@ export const pollsRef = databaseRef.child("polls");
  * }
  * @param {Poll} poll
  */
-export const submitPoll = poll => {
-  pollsRef.push().set(poll);
+export const submitPoll = (poll, callback) => {
+  return () => {
+    const store = pollsRef.push();
+    function onSuccess() {
+      callback(store.key);
+    }
+
+    store.set(poll, onSuccess);
+  };
 };
