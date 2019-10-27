@@ -1,22 +1,22 @@
-.App {
+/* Setup */
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:600,600i&display=swap');
+
+
+:root {
+  --c-black: #333;
+  --c-darkgray: #828282;
+  --c-lightgray: #f2f2f2;
+  --c-white: #fff;
+  --c-primary: #219653;
+  --c-secondary: #9B51E0;
+  --fs-large: 1.5rem;
+  --fs-normal: 1rem;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 1.5rem;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
 }

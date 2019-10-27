@@ -1,0 +1,86 @@
+/* Utility, layout and display */
+.display-none {
+	display: none;
+}
+
+.wide {
+	grid-column: 2 / span 3;
+}
+
+.narrow {
+	grid-column: 3 / span 1;
+}
+
+.height-base {
+	min-height: 3em;
+}
+
+.flex {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.padding-base {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+/* Utility, typography */
+.fontsize-large {
+	font-size: var(--fs-large);
+}
+.fontsize-small {
+	font-size: var(--fs-small);
+}
+.textcolor-black {
+	color: var(--c-black);
+}
+
+.textcolor-white {
+	color: var(--c-white);
+}
+.textcolor-primary {
+	color: var(--c-primary);
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.textalign-center {
+	text-align: center;
+}
+
+/* Utility, bg colors */
+.bg-none {
+	background-color: none;
+}
+
+.bg-black {
+	background-color: var(--c-black);
+}
+
+.bg-lightgray {
+	background-color: var(--c-lightgray);
+}
+
+.bg-primary {
+	background-color: var(--c-primary);
+}
+.bg-secondary {
+	background-color: var(--c-secondary);
+}
+
+/* Utility, icons */
+.icon-selected:after {
+	content: "✓";
+}
+.icon-add:after {
+	content: "+";
+}
