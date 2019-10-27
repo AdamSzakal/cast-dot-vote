@@ -10,7 +10,6 @@ function App() {
       <Header />
       <Voter />
       <Button />
-      <Poll pollId={"-LsBzDnQ6b_MmTAHV1XQ"} />
     </div>
   );
 }
