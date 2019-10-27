@@ -4,7 +4,7 @@ import "../../app.css";
 import "../../utils.css";
 
 function GridItem({ children }) {
-	return <div class="narrow">{children}</div>;
+	return <div class="wide">{children}</div>;
 }
 
 export default GridItem;
