@@ -1,7 +1,7 @@
 import React from "react";
 
 function Header() {
-  return <div>I'm the header</div>;
+  return <div>cast.vote</div>;
 }
 
 export default Header;
